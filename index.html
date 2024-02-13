@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .counter {
+            margin: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="counter">1</h1>
+    <h1 class="counter">2</h1>
+    <h1 class="counter">3</h1>
+    <h1 class="counter">4</h1>
+    <h1 class="counter">5</h1>
+    <h1 class="counter">6</h1>
+    <h1 class="counter">7</h1>
+    <h1 class="counter">8</h1>
+    <h1 class="counter">9</h1>
+    <h1 class="counter">10</h1>
+    <h1 class="counter">11</h1>
+    <h1 class="counter">12</h1>
+    <h1 class="counter">13</h1>
+    <h1 class="counter">14</h1>
+    <h1 class="counter">15</h1>
+    <h1 class="counter">16</h1>
+    <h1 class="counter">17</h1>
+    <h1 class="counter">18</h1>
+    <h1 class="counter">19</h1>
+    <h1 class="counter">20</h1>
+    <script>
+        const counterLimit = 2400;
+        const counterStep = 20;
+        const counter = document.querySelector('#counter')
+        window.FLAG_GO_NEXT = false
+        const interval = setInterval(function () {
+            document.querySelectorAll('.counter').forEach(function (counter) {
+                const count = parseInt(counter.innerText)
+                if (count >= counterLimit) {
+                    clearInterval(interval)
+                    return
+                }
+                if (window.FLAG_GO_NEXT) {
+                    counter.innerText = (count + counterStep).toString()
+                }
+            })
+            window.FLAG_GO_NEXT = false
+        }, 500)
+    </script>
+</body>
+
+</html>
